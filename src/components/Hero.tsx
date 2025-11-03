@@ -7,6 +7,14 @@ export const Hero = () => {
   const [typedText, setTypedText] = useState("");
   const fullText = "Rainer Yesaya Villareal";
   
+  const subheadings = [
+    "I'm a Computer Science Student",
+    "AI Enthusiast",
+    "Creative Problem Solver"
+  ];
+  const [currentSubheading, setCurrentSubheading] = useState(0);
+  const [fadeIn, setFadeIn] = useState(true);
+  
   useEffect(() => {
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
@@ -19,6 +27,18 @@ export const Hero = () => {
     }, 100);
 
     return () => clearInterval(typingInterval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeIn(false);
+      setTimeout(() => {
+        setCurrentSubheading((prev) => (prev + 1) % subheadings.length);
+        setFadeIn(true);
+      }, 500);
+    }, 2500);
+
+    return () => clearInterval(interval);
   }, []);
 
   const handleContactClick = () => {
@@ -53,25 +73,30 @@ export const Hero = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="text-left space-y-6 animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold">
+          <div className="text-center lg:text-left space-y-6 animate-fade-in order-2 lg:order-1">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
               <span className="text-gradient inline-block min-h-[1.2em]">
                 {typedText}
                 <span className="animate-blink">|</span>
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground animate-slide-up">
-              A Computer Science Student specializing in{" "}
-              <span className="text-primary font-semibold">Intelligent Systems</span>
-            </p>
+            <div className="relative min-h-[4rem] flex items-center justify-center lg:justify-start">
+              <p 
+                className={`text-lg sm:text-xl md:text-2xl text-muted-foreground transition-all duration-500 ${
+                  fadeIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+              >
+                {subheadings[currentSubheading]}
+              </p>
+            </div>
 
-            <p className="text-base md:text-lg text-muted-foreground max-w-xl animate-slide-up">
+            <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-slide-up">
               Passionate about AI, Machine Learning, and building intelligent solutions 
               that make a difference. Currently studying at Bina Nusantara University.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
               <Button
                 size="lg"
                 className="glow-hover group"
@@ -93,7 +118,7 @@ export const Hero = () => {
           </div>
 
           {/* Right Content - Profile Image */}
-          <div className="flex justify-center lg:justify-end animate-scale-in">
+          <div className="flex justify-center lg:justify-end animate-scale-in order-1 lg:order-2">
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-purple-500 rounded-full opacity-75 blur-2xl group-hover:opacity-100 transition-opacity animate-glow-pulse" />
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/50 group-hover:border-primary transition-all duration-300 group-hover:scale-105">

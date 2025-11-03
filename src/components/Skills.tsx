@@ -6,18 +6,21 @@ interface Skill {
   level: number;
   icon: any;
   color: string;
+  category: string;
 }
 
 const skills: Skill[] = [
-  { name: "Python", level: 90, icon: Code2, color: "from-blue-500 to-cyan-500" },
-  { name: "Machine Learning", level: 85, icon: Brain, color: "from-purple-500 to-pink-500" },
-  { name: "TensorFlow", level: 80, icon: Cpu, color: "from-orange-500 to-red-500" },
-  { name: "C++", level: 75, icon: Code2, color: "from-blue-600 to-blue-400" },
-  { name: "SQL/Databases", level: 80, icon: Database, color: "from-green-500 to-emerald-500" },
-  { name: "React", level: 85, icon: Globe, color: "from-cyan-500 to-blue-500" },
-  { name: "Deep Learning", level: 80, icon: Brain, color: "from-indigo-500 to-purple-500" },
-  { name: "Git", level: 85, icon: GitBranch, color: "from-orange-600 to-red-600" },
+  { name: "Python", level: 90, icon: Code2, color: "from-blue-500 to-cyan-500", category: "AI & Data" },
+  { name: "Machine Learning", level: 85, icon: Brain, color: "from-purple-500 to-pink-500", category: "AI & Data" },
+  { name: "TensorFlow", level: 80, icon: Cpu, color: "from-orange-500 to-red-500", category: "AI & Data" },
+  { name: "C++", level: 75, icon: Code2, color: "from-blue-600 to-blue-400", category: "Web Development" },
+  { name: "SQL/Databases", level: 80, icon: Database, color: "from-green-500 to-emerald-500", category: "Tools & Others" },
+  { name: "React", level: 85, icon: Globe, color: "from-cyan-500 to-blue-500", category: "Web Development" },
+  { name: "Deep Learning", level: 80, icon: Brain, color: "from-indigo-500 to-purple-500", category: "AI & Data" },
+  { name: "Git", level: 85, icon: GitBranch, color: "from-orange-600 to-red-600", category: "Tools & Others" },
 ];
+
+const categories = ["All", "Web Development", "AI & Data", "Tools & Others"];
 
 const SkillCard = ({ skill, index, isVisible }: { skill: Skill; index: number; isVisible: boolean }) => {
   const [progress, setProgress] = useState(0);
@@ -94,6 +97,7 @@ const SkillCard = ({ skill, index, isVisible }: { skill: Skill; index: number; i
 
 export const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("All");
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -112,6 +116,10 @@ export const Skills = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  const filteredSkills = activeCategory === "All" 
+    ? skills 
+    : skills.filter(skill => skill.category === activeCategory);
 
   return (
     <section id="skills" className="py-20 md:py-32 bg-background/50" ref={sectionRef}>
@@ -138,8 +146,29 @@ export const Skills = () => {
           </p>
         </div>
 
+        {/* Category Filters */}
+        <div 
+          className={`flex flex-wrap justify-center gap-3 mb-12 transition-all duration-700 delay-400 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                activeCategory === category
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/50 scale-105"
+                  : "bg-primary/10 text-primary hover:bg-primary/20 hover:scale-105"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {skills.map((skill, index) => (
+          {filteredSkills.map((skill, index) => (
             <SkillCard key={skill.name} skill={skill} index={index} isVisible={isVisible} />
           ))}
         </div>

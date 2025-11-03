@@ -56,13 +56,10 @@ const ExperienceCard = ({
   const isLeft = index % 2 === 0;
 
   return (
-    <div className="relative">
-      {/* Timeline Connector */}
-      <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary to-primary/50" />
-
+    <div className="relative mb-0">
       {/* Timeline Dot */}
       <div
-        className={`hidden md:block absolute left-1/2 top-8 w-4 h-4 -ml-2 rounded-full bg-primary shadow-lg transition-all duration-700 ${
+        className={`hidden md:block absolute left-1/2 top-8 w-4 h-4 -ml-2 rounded-full bg-primary shadow-lg shadow-primary/50 transition-all duration-700 z-10 ${
           isVisible ? "scale-100 opacity-100" : "scale-0 opacity-0"
         }`}
         style={{ transitionDelay: `${index * 200}ms` }}
@@ -80,7 +77,7 @@ const ExperienceCard = ({
           }`}
         style={{ transitionDelay: `${index * 200 + 100}ms` }}
       >
-        <div className="glass p-6 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-[1.02] group mb-12">
+        <div className="glass p-6 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20 group mb-8">
           {/* Header */}
           <div className="flex items-start gap-4 mb-4">
             <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
@@ -167,7 +164,10 @@ export const Experience = () => {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto relative">
+          {/* Continuous Timeline Line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/30 via-primary to-primary/30 -ml-px" />
+          
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={index}

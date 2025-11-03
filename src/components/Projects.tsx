@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
+import useEmblaCarousel from "embla-carousel-react";
 
 interface Project {
   title: string;
@@ -77,6 +78,18 @@ export const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true, 
+    align: 'start',
+    slidesToScroll: 1,
+    breakpoints: {
+      '(min-width: 768px)': { slidesToScroll: 2 },
+      '(min-width: 1024px)': { slidesToScroll: 3 }
+    }
+  });
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -95,10 +108,31 @@ export const Projects = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => {
+      setCanScrollPrev(emblaApi.canScrollPrev());
+      setCanScrollNext(emblaApi.canScrollNext());
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    emblaApi.on('select', onSelect);
+    onSelect();
+
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi]);
+
   const filteredProjects =
     activeCategory === "All"
       ? projects
       : projects.filter((project) => project.category === activeCategory);
+
+  const scrollPrev = () => emblaApi?.scrollPrev();
+  const scrollNext = () => emblaApi?.scrollNext();
+  const scrollTo = (index: number) => emblaApi?.scrollTo(index);
 
   return (
     <section id="projects" className="py-20 md:py-32 bg-background/50" ref={sectionRef}>
@@ -147,77 +181,120 @@ export const Projects = () => {
           ))}
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {filteredProjects.map((project, index) => (
-            <div
-              key={index}
-              className={`group glass rounded-2xl overflow-hidden hover:glass-strong transition-all duration-700 hover:scale-[1.02] ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: `${index * 100 + 500}ms` }}
-            >
-              {/* Project Image */}
-              <div className="relative overflow-hidden h-48">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-                    {project.demoLink && (
-                      <Button
-                        size="sm"
-                        variant="default"
-                        className="flex-1"
-                        onClick={() => window.open(project.demoLink, "_blank")}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
-                      </Button>
-                    )}
-                    {project.githubLink && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="flex-1 border-primary"
-                        onClick={() => window.open(project.githubLink, "_blank")}
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Button>
-                    )}
+        {/* Projects Carousel */}
+        <div className="relative max-w-7xl mx-auto">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-6">
+              {filteredProjects.map((project, index) => (
+                <div
+                  key={index}
+                  className={`group glass rounded-2xl overflow-hidden hover:glass-strong transition-all duration-700 hover:scale-[1.02] flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  }`}
+                  style={{ transitionDelay: `${index * 100 + 500}ms` }}
+                >
+                  {/* Project Image */}
+                  <div className="relative overflow-hidden h-48">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                        {project.demoLink && (
+                          <Button
+                            size="sm"
+                            variant="default"
+                            className="flex-1"
+                            onClick={() => window.open(project.demoLink, "_blank")}
+                          >
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Demo
+                          </Button>
+                        )}
+                        {project.githubLink && (
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="flex-1 border-primary"
+                            onClick={() => window.open(project.githubLink, "_blank")}
+                          >
+                            <Github className="w-4 h-4 mr-2" />
+                            Code
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Project Content */}
+                  <div className="p-6">
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+                      {project.category}
+                    </span>
+                    <h3 className="text-xl font-bold mt-2 mb-3 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded border border-primary/20"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Project Content */}
-              <div className="p-6">
-                <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-                  {project.category}
-                </span>
-                <h3 className="text-xl font-bold mt-2 mb-3 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  {project.description}
-                </p>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded border border-primary/20"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Carousel Controls */}
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={scrollPrev}
+              disabled={!canScrollPrev}
+              className="rounded-full border-primary disabled:opacity-30"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+
+            {/* Pagination Dots */}
+            <div className="flex gap-2">
+              {filteredProjects.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => scrollTo(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === selectedIndex
+                      ? "bg-primary w-8"
+                      : "bg-primary/30 hover:bg-primary/50"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={scrollNext}
+              disabled={!canScrollNext}
+              className="rounded-full border-primary disabled:opacity-30"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>
