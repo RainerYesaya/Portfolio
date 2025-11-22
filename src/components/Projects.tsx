@@ -15,60 +15,77 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "AI Image Recognition System",
+    title: "TrackIT",
     description:
-      "Deep learning model for multi-class image classification using CNNs. Achieved 94% accuracy on test dataset with real-time inference capabilities.",
-    technologies: ["Python", "TensorFlow", "Keras", "OpenCV"],
+      "An AI-based web application that uses Facial Recognition (PyTorch, FaceNet) for automatic, real-time student attendance verification in a university setting , reducing fraud, and integrating with academic systems.",
+    technologies: [
+      "Python",
+      "FaceNet",
+      "PyTorch",
+      "OpenCV",
+      "Flask",
+      "Supabase",
+      "React.js",
+    ],
     category: "AI",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
-    githubLink: "#",
+    image: "src/assets/TrackIT_Cover.png",
+    githubLink: "https://github.com/RainerYesaya/TrackIT",
   },
   {
-    title: "Intelligent Chatbot Platform",
+    title: "Flood Risk Prediction Model for Jakarta",
     description:
-      "NLP-powered conversational AI with context understanding and sentiment analysis. Handles 1000+ queries daily with 92% user satisfaction.",
-    technologies: ["Python", "Transformers", "FastAPI", "React"],
+      "A machine learning model that predicts flood risk in Jakarta using historical weather data, SMOTE balancing, and a Random Forest classifier. Deployed through a simple Flask web app for real-time user input and predictions.",
+    technologies: ["Python", "Pandas", "NumPy", "Flask", "Scikit-Learn"],
     category: "AI",
-    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop",
-    demoLink: "#",
-    githubLink: "#",
+    image: "src/assets/Flood_Prediction_Models_Cover.jpg",
+    githubLink: "https://github.com/RainerYesaya/Flood-Prediction-Models",
   },
   {
-    title: "Data Analytics Dashboard",
+    title: "V-Phone",
     description:
-      "Real-time analytics platform with interactive visualizations. Processes millions of data points with sub-second query response times.",
-    technologies: ["React", "D3.js", "Node.js", "PostgreSQL"],
+      "A personal project where I built a smartphone brand website called V-Phone, featuring a homepage, product listings, promotions, and a registration page. This project strengthened my skills in creating clean and user-friendly web interfaces while applying brand identity into a functional site.",
+    technologies: ["HTML", "CSS", "Figma", "JavaScript"],
     category: "Web",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    demoLink: "#",
-    githubLink: "#",
+    image: "src/assets/V-Phone_Cover.jpg",
+    githubLink: "https://github.com/RainerYesaya/V-Phone.git",
   },
   {
-    title: "Smart Recommendation Engine",
+    title: "Asphalt 9: Legends",
     description:
-      "Machine learning-based recommendation system using collaborative filtering. Improved user engagement by 45% through personalized suggestions.",
-    technologies: ["Python", "Scikit-learn", "Pandas", "Flask"],
-    category: "AI",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=600&fit=crop",
-    githubLink: "#",
+      "A multi-page website redesign inspired by Asphalt 9: Legends, featuring a homepage, car listings with filters, news updates, esports events, and a subscription page. The project focuses on creating a clean, game-styled interface with improved usability.",
+    technologies: ["HTML", "CSS", "JavaScript", "Figma"],
+    category: "Web",
+    image: "src/assets/Asphatl9_Cover.jpg",
+    githubLink: "https://github.com/RainerYesaya/Asphatl9",
   },
   {
-    title: "Computer Vision Research",
+    title: "WasteWise",
     description:
-      "Academic research on object detection algorithms. Published paper on optimized YOLO architecture with 20% faster inference time.",
-    technologies: ["Python", "PyTorch", "CUDA", "LaTeX"],
+      "A full-stack web platform that helps users discover recycling ideas, tutorials, and inspiration for turning waste into useful products. The website features material-based search and filters, a catalog of creative projects, video tutorials, user uploads, comments, and authentication. Built with a focus on usability and clean interface design.",
+    technologies: ["React.js", "Node.js", "Express.js", "CouchDb", "Figma"],
+    category: "Web",
+    image: "src/assets/WasteWise_Cover.jpg",
+    githubLink: "https://github.com/RainerYesaya/WasteWise",
+  },
+  {
+    title:
+      "Hybrid Integration of Collaborative Filtering and the Apriori Algorithm for Game Recommendation System",
+    description:
+      "A research project proposing a hybrid game recommendation method by combining collaborative filtering with the Apriori algorithm. I contributed to the introduction and methodology, helping define the problem, review related work, and design the model. This project strengthened my understanding of recommender systems and hybrid modeling.",
+    technologies: ["Python", "Steam Web API"],
     category: "Research",
-    image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&h=600&fit=crop",
+    image: "src/assets/Research_Cover.png",
+    demoLink:
+      "https://docs.google.com/document/d/1NCfACNxBE-5QqInum5HxqnUCS4bNI5o5/edit?usp=sharing&ouid=104274979903997048159&rtpof=true&sd=true",
   },
   {
-    title: "Full-Stack E-Commerce Platform",
+    title: "MediaAssist",
     description:
-      "Scalable e-commerce solution with payment integration and inventory management. Handles 10K+ concurrent users with 99.9% uptime.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    category: "Web",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
-    demoLink: "#",
-    githubLink: "#",
+      "MediAssist is an AI-based medical chatbot that answers common health questions instantly, anytime. It uses NLP and a trained neural network to understand user messages and give accurate, consistent replies. The chatbot runs on a simple web interface where users can chat with it in real time, helping reduce manual workload and improve accessibility.",
+    technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
+    category: "AI",
+    image: "src/assets/MediAssist_Cover.jpg",
+    githubLink: "https://github.com/RainerYesaya/Mediassist",
   },
 ];
 
@@ -210,7 +227,7 @@ export const Projects = () => {
                             onClick={() => window.open(project.demoLink, "_blank")}
                           >
                             <ExternalLink className="w-4 h-4 mr-2" />
-                            Demo
+                            See
                           </Button>
                         )}
                         {project.githubLink && (

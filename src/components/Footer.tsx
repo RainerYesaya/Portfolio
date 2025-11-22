@@ -2,9 +2,17 @@ import { Mail, Linkedin, Github } from "lucide-react";
 
 export const Footer = () => {
   const socialLinks = [
-    { icon: Linkedin, link: "https://linkedin.com/in/rainervillareal", label: "LinkedIn" },
-    { icon: Github, link: "https://github.com/rainervillareal", label: "GitHub" },
-    { icon: Mail, link: "mailto:rainer.villareal@binus.ac.id", label: "Email" },
+    {
+      icon: Linkedin,
+      link: "https://www.linkedin.com/in/raineryesaya/",
+      label: "LinkedIn",
+    },
+    {
+      icon: Github,
+      link: "https://github.com/RainerYesaya",
+      label: "GitHub",
+    },
+    { icon: Mail, link: "mailto:raineryesaya888@gmail.com", label: "Email" },
   ];
 
   return (
@@ -13,7 +21,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Copyright */}
           <p className="text-sm text-muted-foreground">
-            © 2025 Rainer Yesaya Villareal. All Rights Reserved.
+            © 2025 Rainer Yesaya Villareal.
           </p>
 
           {/* Social Links */}

@@ -7,131 +7,145 @@ export const About = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
+      ([entry]) => entry.isIntersecting && setIsVisible(true),
       { threshold: 0.2 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   const highlights = [
+    "Computer Science",
     "Artificial Intelligence",
-    "Bina Nusantara University",
     "Machine Learning",
-    "Intelligent Systems",
-    "Deep Learning",
+    "Web Developer",
+    "AIESECer",
+    "Communicative",
+    "Team Work",
+    "Active",
   ];
 
   return (
-    <section id="about" className="py-20 md:py-32 relative overflow-hidden" ref={sectionRef}>
-      {/* Background Accent */}
+    <section
+      id="about"
+      ref={sectionRef}
+      className="py-20 md:py-32 relative overflow-hidden"
+    >
+      {/* Soft background accent */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
-      
-      <div className="container mx-auto px-6 relative z-10">
+
+      <div className="container mx-auto px-6 relative z-10 max-w-6xl">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2
-            className={`text-4xl md:text-5xl font-bold mb-4 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            className={`text-4xl md:text-5xl font-bold transition-all duration-700 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
             About <span className="text-gradient">Me</span>
           </h2>
           <div
-            className={`w-24 h-1 bg-primary mx-auto transition-all duration-700 delay-200 ${
+            className={`w-24 h-1 bg-primary mx-auto mt-3 rounded-full transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
             }`}
           />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        {/* Content */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Image */}
           <div
             className={`flex justify-center transition-all duration-700 delay-300 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-10"
             }`}
           >
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary to-purple-500 rounded-2xl opacity-50 blur-xl" />
-              <div className="relative glass p-4 rounded-2xl">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary to-purple-500 rounded-2xl opacity-40 blur-xl group-hover:opacity-70 transition-all duration-500" />
+              <div className="relative p-4 rounded-2xl bg-card/70 backdrop-blur-xl border border-border/50">
                 <img
                   src={profileImage}
                   alt="Rainer Yesaya Villareal"
-                  className="w-full max-w-md rounded-xl"
+                  className="w-full max-w-md rounded-xl object-cover"
                 />
               </div>
             </div>
           </div>
 
-          {/* Right - Content */}
-          <div className="space-y-6">
-            <div
-              className={`transition-all duration-700 delay-400 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-            >
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm a passionate Computer Science student at{" "}
-                <span className="text-primary font-semibold">Bina Nusantara University</span>,
-                specializing in{" "}
-                <span className="text-primary font-semibold">Intelligent Systems</span>. 
-                My journey in technology is driven by a deep fascination with how{" "}
-                <span className="text-primary font-semibold">Artificial Intelligence</span> 
-                can transform the way we solve complex problems.
-              </p>
-            </div>
+          {/* Right - Text Content */}
+          <div
+            className={`space-y-6 text-muted-foreground transition-all duration-700 delay-400 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            {/* Title */}
+            <h3 className="text-3xl md:text-4xl font-semibold text-foreground">
+              Hi, I’m{" "}
+              <span className="italic underline text-gradient inline-block pr-[15px]">
+                Rainer
+              </span>
+            </h3>
 
-            <div
-              className={`transition-all duration-700 delay-500 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-            >
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I love exploring the intersection of{" "}
-                <span className="text-primary font-semibold">Machine Learning</span>,{" "}
-                <span className="text-primary font-semibold">Deep Learning</span>, and 
-                real-world applications. Whether it's building neural networks, optimizing 
-                algorithms, or creating intelligent systems that learn and adapt, I'm always 
-                excited to push the boundaries of what's possible.
-              </p>
-            </div>
+            {/* Description */}
+            <p className="text-lg leading-relaxed">
+              
+              A Computer Science student at{" "}
+              <span className="text-primary font-semibold">
+                Bina Nusantara University
+              </span>{" "}
+              with a strong interest in{" "}
+              <span className="text-primary font-semibold">
+                Artificial Intelligence
+              </span>{" "}
+              and{" "}
+              <span className="text-primary font-semibold">
+                Machine Learning
+              </span>
+              . I’m passionate about developing impactful tech solutions that
+              solve real-world problems.
+            </p>
 
-            <div
-              className={`transition-all duration-700 delay-600 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-            >
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                My goal is to contribute to cutting-edge AI research and development, 
-                creating solutions that not only showcase technical excellence but also 
-                make a meaningful impact on society. I believe in continuous learning, 
-                collaboration, and the power of technology to shape a better future.
-              </p>
-            </div>
+            <p className="text-lg leading-relaxed">
+              I’ve worked on several projects, including a{" "}
+              <span className="text-primary font-semibold">
+                flood prediction model for the Jakarta area
+              </span>
+              , a{" "}
+              <span className="text-primary font-semibold">
+                face recognition attendance system
+              </span>
+              , and a{" "}
+              <span className="text-primary font-semibold">
+                recycling video platform
+              </span>
+              . These experiences helped me strengthen my problem-solving,
+              teamwork, and creativity in technology.
+            </p>
 
-            {/* Key Interests */}
-            <div
-              className={`pt-4 transition-all duration-700 delay-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-            >
-              <div className="flex flex-wrap gap-3">
-                {highlights.map((highlight, index) => (
-                  <span
-                    key={index}
-                    className="px-4 py-2 glass rounded-full text-sm font-medium text-primary border border-primary/30 hover:border-primary hover:glow-primary transition-all duration-300"
-                  >
-                    {highlight}
-                  </span>
-                ))}
-              </div>
+            <p className="text-lg leading-relaxed">
+              Outside of academics, I’m active in organizations like{" "}
+              <span className="text-primary font-semibold">AIESEC</span> and{" "}
+              <span className="text-primary font-semibold">iBuddy</span>, where
+              I’ve developed leadership and communication skills through
+              collaboration, mentorship, and global exchange activities.
+            </p>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-3 pt-2">
+              {highlights.map((tag, index) => (
+                <span
+                  key={index}
+                  className="px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full border border-primary/20 hover:bg-primary/20 transition-all duration-300"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </div>

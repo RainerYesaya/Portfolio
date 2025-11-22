@@ -45,7 +45,7 @@ All colors MUST be HSL.
     --glass-bg: 222 47% 8% / 0.6;
     --gradient-start: 217 91% 60%;
     --gradient-end: 264 89% 58%;
-    
+
     /* Shadows & Effects */
     --shadow-glow: 0 0 30px hsl(var(--glow-primary) / 0.3);
     --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);

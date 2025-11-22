@@ -7,7 +7,11 @@ import { useToast } from "@/hooks/use-toast";
 
 export const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
@@ -31,7 +35,7 @@ export const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Error",
@@ -42,41 +46,70 @@ export const Contact = () => {
     }
 
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+
+    const data = {
+      access_key: "f9ed554d-b048-4733-bfc8-753e1137b79b", // <--- ACCESS KEY KAMU
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    };
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
       toast({
         title: "Message Sent!",
         description: "Thank you for reaching out. I'll get back to you soon!",
       });
+
       setFormData({ name: "", email: "", message: "" });
-      setIsSubmitting(false);
-    }, 1500);
+    } else {
+      toast({
+        title: "Error",
+        description: "Failed to send message!",
+        variant: "destructive",
+      });
+    }
+
+    setIsSubmitting(false);
   };
 
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "rainer.villareal@binus.ac.id",
-      link: "mailto:rainer.villareal@binus.ac.id",
+      value: "raineryesaya888@gmail.com",
+      link: "mailto:raineryesaya888@gmail.com",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/rainervillareal",
-      link: "https://linkedin.com/in/rainervillareal",
+      value: "linkedin.com/in/raineryesaya",
+      link: "https://www.linkedin.com/in/raineryesaya/",
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/rainervillareal",
-      link: "https://github.com/rainervillareal",
+      value: "github.com/RainerYesaya",
+      link: "https://github.com/RainerYesaya",
     },
   ];
 
   return (
-    <section id="contact" className="py-20 md:py-32 relative overflow-hidden" ref={sectionRef}>
+    <section
+      id="contact"
+      className="py-20 md:py-32 relative overflow-hidden"
+      ref={sectionRef}
+    >
       {/* Background Effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
 
@@ -84,7 +117,9 @@ export const Contact = () => {
         <div className="text-center mb-16">
           <h2
             className={`text-4xl md:text-5xl font-bold mb-4 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
             Get In <span className="text-gradient">Touch</span>
@@ -96,7 +131,9 @@ export const Contact = () => {
           />
           <p
             className={`text-muted-foreground mt-4 text-lg transition-all duration-700 delay-300 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
             Let's discuss how we can work together
@@ -107,14 +144,17 @@ export const Contact = () => {
           {/* Left Column - Contact Info */}
           <div
             className={`space-y-8 transition-all duration-700 delay-400 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-10"
             }`}
           >
             <div>
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                I'm always open to discussing new projects, creative ideas, or opportunities
-                to be part of your vision. Feel free to reach out through any of these channels.
+                I'm always open to discussing new projects, creative ideas, or
+                opportunities to be part of your vision. Feel free to reach out
+                through any of these channels.
               </p>
             </div>
 
@@ -132,7 +172,9 @@ export const Contact = () => {
                     <Icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">{info.label}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {info.label}
+                    </p>
                     <p className="font-medium group-hover:text-primary transition-colors">
                       {info.value}
                     </p>
@@ -145,19 +187,29 @@ export const Contact = () => {
           {/* Right Column - Contact Form */}
           <div
             className={`transition-all duration-700 delay-500 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-10"
             }`}
           >
-            <form onSubmit={handleSubmit} className="glass p-8 rounded-2xl space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="glass p-8 rounded-2xl space-y-6"
+            >
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2"
+                >
                   Name
                 </label>
                 <Input
                   id="name"
                   type="text"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   placeholder="Your name"
                   className="bg-background/50 border-border focus:border-primary"
                   required
@@ -165,14 +217,19 @@ export const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                >
                   Email
                 </label>
                 <Input
                   id="email"
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   placeholder="your.email@example.com"
                   className="bg-background/50 border-border focus:border-primary"
                   required
@@ -180,13 +237,18 @@ export const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
                   Message
                 </label>
                 <Textarea
                   id="message"
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   placeholder="Tell me about your project or idea..."
                   rows={6}
                   className="bg-background/50 border-border focus:border-primary resize-none"

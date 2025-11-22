@@ -6,15 +6,15 @@ import profileImage from "@/assets/profile.jpg";
 export const Hero = () => {
   const [typedText, setTypedText] = useState("");
   const fullText = "Rainer Yesaya Villareal";
-  
+
   const subheadings = [
-    "I'm a Computer Science Student",
-    "AI Enthusiast",
-    "Creative Problem Solver"
+    "a Computer Science Student",
+    "an AI Enthusiast",
+    "a Creative Problem Solver",
   ];
   const [currentSubheading, setCurrentSubheading] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
-  
+
   useEffect(() => {
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
@@ -35,7 +35,7 @@ export const Hero = () => {
       setTimeout(() => {
         setCurrentSubheading((prev) => (prev + 1) % subheadings.length);
         setFadeIn(true);
-      }, 500);
+      }, 400);
     }, 2500);
 
     return () => clearInterval(interval);
@@ -80,41 +80,54 @@ export const Hero = () => {
                 <span className="animate-blink">|</span>
               </span>
             </h1>
-            
+
+            {/* Subheading with static "I'm" */}
             <div className="relative min-h-[4rem] flex items-center justify-center lg:justify-start">
-              <p 
-                className={`text-lg sm:text-xl md:text-2xl text-muted-foreground transition-all duration-500 ${
-                  fadeIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-              >
-                {subheadings[currentSubheading]}
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground flex gap-2 items-center">
+                <span className="text-primary font-medium">I'm</span>
+                <span
+                  className={`inline-block transition-all duration-500 ease-in-out ${
+                    fadeIn
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4"
+                  }`}
+                >
+                  {subheadings[currentSubheading]}
+                </span>
               </p>
             </div>
 
-            <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-slide-up">
-              Passionate about AI, Machine Learning, and building intelligent solutions 
-              that make a difference. Currently studying at Bina Nusantara University.
-            </p>
+           <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-slide-up leading-relaxed">
+              A Computer Science student from Bina Nusantara University passionate about 
+              Artificial Intelligence and building impactful solutions that connect technology, 
+              creativity, and people.
+          </p>
 
-            <div className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="glow-hover group"
-                onClick={() => window.open("/cv.pdf", "_blank")}
-              >
-                <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                Download CV
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                onClick={handleContactClick}
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                Contact Me
-              </Button>
-            </div>
+<div className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
+  <Button
+    size="lg"
+    className="glow-hover group"
+    onClick={() =>
+      window.open(
+        "https://drive.google.com/file/d/1XK6N89ySBXrAumUdCzkynmHfwtxFcWHw/view?usp=sharing",
+        "_blank"
+      )
+    }
+  >
+    <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+    Download CV
+  </Button>
+  <Button
+    size="lg"
+    variant="outline"
+    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+    onClick={handleContactClick}
+  >
+    <Mail className="mr-2 h-5 w-5" />
+    Contact Me
+  </Button>
+</div>
+
           </div>
 
           {/* Right Content - Profile Image */}

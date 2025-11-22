@@ -11,36 +11,60 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    position: "AI Research Intern",
-    company: "Tech Innovation Lab",
-    duration: "Jun 2024 - Present",
+    position: "Scholarship Mentor",
+    company: "Student Advisory and Support Center Binus University",
+    duration: "Sep 2024–Jan 2025",
     description:
-      "Working on cutting-edge deep learning models for computer vision applications. Developed neural network architectures that improved classification accuracy by 15%.",
-    technologies: ["Python", "TensorFlow", "PyTorch", "OpenCV"],
+      "Mentored 6 students in 6 core Computer Science subjects, achieving a 15% average grade improvement. Developed 6 personalized learning plans, utilizing mentee feedback to refine teaching methods and achieve a 9/10 average satisfaction score. Developed advanced problem-solving skills by challenging students with technical problems beyond the standard curriculum.",
+    technologies: ["Python", "Java", "C++", "SQL"],
   },
   {
-    position: "Machine Learning Developer",
-    company: "StartupX",
-    duration: "Jan 2024 - May 2024",
+    position: "Linear Algebra Tutor",
+    company: "Scientia Bootcamp",
+    duration: "Sep 2024 – Oct 2024",
     description:
-      "Built and deployed ML models for predictive analytics. Collaborated with cross-functional teams to integrate AI solutions into production systems.",
-    technologies: ["Python", "Scikit-learn", "Flask", "Docker"],
+      "Selected as 1 of 20 applicants for a tutoring role based on strong technical knowledge and communication skills. Taught Linear Algebra fundamentals to 10 bootcamp participants, emphasizing applications in Machine Learning and Computer Science.",
+    technologies: [
+      "Machine Learning",
+      "Linear Algebra",
+      "Mentoring",
+      "Time Management",
+    ],
   },
   {
-    position: "Teaching Assistant",
-    company: "Bina Nusantara University",
-    duration: "Aug 2023 - Dec 2023",
+    position: "Staff Talent Experience & iComm Management",
+    company: "AIESEC IN BINUS",
+    duration: "Feb 2025–Present",
     description:
-      "Assisted in teaching Data Structures and Algorithms course. Mentored students in C++ programming and algorithm design, conducting lab sessions and grading assignments.",
-    technologies: ["C++", "Algorithms", "Data Structures"],
+      "Analyzed development data for 97 members via 'Maximum Standard Tracker,' achieving a 9.5/10 rating and a #2 national rank (AIESEC in Indonesia, Mar 2025). Managed internal comms: designed 14+ Instagram content pieces (@sunibiru, 1.560 followers) and created live event reports, driving 90+ member participation.",
+    technologies: ["Data Analysis", "Microsoft Excel", "Canva", "Figma"],
   },
   {
-    position: "Software Development Intern",
-    company: "Digital Solutions Inc.",
-    duration: "Jun 2023 - Aug 2023",
+    position: "Freshmen Leader & Freshmen Partner",
+    company: "First Year Program B28 (Binus University)",
+    duration: "Aug 2024 – May 2025",
     description:
-      "Developed full-stack web applications using modern frameworks. Implemented RESTful APIs and responsive user interfaces for client projects.",
-    technologies: ["React", "Node.js", "MongoDB", "TypeScript"],
+      "Co-managed a 6-member team to successfully organize and execute a new student orientation program. Mentored a group of 10 freshmen for one year, guiding their integration into university life. Awarded the 'FL ter-SOCS' title for demonstrating top performance among all Freshmen Leaders in the School of Computer Science (SOCS).",
+    technologies: [
+      "Teamwork",
+      "Collaboration",
+      "Public Speaking",
+      "Mentorship",
+    ],
+  },
+  {
+    position: "Event Specialist",
+    company: "iBuddy+ Community",
+    duration: "Jan 2025 – Dec 2025",
+    description:
+      "Focused on supporting exchange students and creating meaningful cross-cultural experiences through event coordination and personal assistance. Helped organize events like Orientation, Ramadan Celebration, Farewell, and international seminars. Acted as MC and handled technical needs during several seminar events. Supported exchange students with daily needs and helped them adjust to campus life.",
+    technologies: [
+      "English",
+      "Event Coordination",
+      "Communication",
+      "Project Management",
+      "Public Speaking"
+    ],
   },
 ];
 
