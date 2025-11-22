@@ -25,48 +25,202 @@ interface Skill {
 
 const skills: Skill[] = [
   // 🧠 TECHNICAL SKILLS
-  { name: "Python", level: 90, icon: Brain, color: "from-yellow-400 to-orange-400", category: "Technical Skills" },
-  { name: "JavaScript", level: 85, icon: Code2, color: "from-yellow-400 to-amber-500", category: "Technical Skills" },
-  { name: "Java", level: 80, icon: Code2, color: "from-red-400 to-orange-400", category: "Technical Skills" },
-  { name: "C / C++", level: 75, icon: Code2, color: "from-blue-400 to-blue-600", category: "Technical Skills" },
-  { name: "React.js", level: 85, icon: Globe, color: "from-cyan-400 to-blue-500", category: "Technical Skills" },
-  { name: "HTML & CSS", level: 90, icon: Layers, color: "from-orange-400 to-yellow-400", category: "Technical Skills" },
-  { name: "Flask", level: 80, icon: Cpu, color: "from-gray-400 to-gray-600", category: "Technical Skills" },
-  { name: "Node.js", level: 85, icon: Globe, color: "from-green-400 to-emerald-500", category: "Technical Skills" },
-  { name: "Express.js", level: 80, icon: Globe, color: "from-gray-400 to-gray-500", category: "Technical Skills" },
-  { name: "Scikit-learn", level: 80, icon: Brain, color: "from-blue-400 to-indigo-500", category: "Technical Skills" },
-  { name: "Pandas", level: 85, icon: Database, color: "from-purple-400 to-pink-400", category: "Technical Skills" },
-  { name: "TensorFlow", level: 80, icon: Cpu, color: "from-orange-500 to-red-500", category: "Technical Skills" },
-  { name: "MySQL / SQL", level: 85, icon: Database, color: "from-teal-400 to-emerald-500", category: "Technical Skills" },
-  { name: "MongoDB", level: 80, icon: Database, color: "from-green-500 to-emerald-500", category: "Technical Skills" },
-  { name: "Git / GitHub", level: 85, icon: GitBranch, color: "from-orange-600 to-red-600", category: "Technical Skills" },
-  { name: "Figma / Canva", level: 90, icon: Layers, color: "from-pink-400 to-purple-400", category: "Technical Skills" },
-  { name: "Microsoft Excel", level: 85, icon: BarChart3, color: "from-green-400 to-lime-400", category: "Technical Skills" },
+  {
+    name: "Python",
+    level: 90,
+    icon: Brain,
+    color: "from-yellow-400 to-orange-400",
+    category: "Technical Skills",
+  },
+  {
+    name: "JavaScript",
+    level: 85,
+    icon: Code2,
+    color: "from-yellow-400 to-amber-500",
+    category: "Technical Skills",
+  },
+  {
+    name: "Java",
+    level: 80,
+    icon: Code2,
+    color: "from-red-400 to-orange-400",
+    category: "Technical Skills",
+  },
+  {
+    name: "C / C++",
+    level: 75,
+    icon: Code2,
+    color: "from-blue-400 to-blue-600",
+    category: "Technical Skills",
+  },
+  {
+    name: "React.js",
+    level: 85,
+    icon: Globe,
+    color: "from-cyan-400 to-blue-500",
+    category: "Technical Skills",
+  },
+  {
+    name: "HTML & CSS",
+    level: 90,
+    icon: Layers,
+    color: "from-orange-400 to-yellow-400",
+    category: "Technical Skills",
+  },
+  {
+    name: "Flask",
+    level: 80,
+    icon: Cpu,
+    color: "from-gray-400 to-gray-600",
+    category: "Technical Skills",
+  },
+  {
+    name: "Node.js",
+    level: 85,
+    icon: Globe,
+    color: "from-green-400 to-emerald-500",
+    category: "Technical Skills",
+  },
+  {
+    name: "Express.js",
+    level: 80,
+    icon: Globe,
+    color: "from-gray-400 to-gray-500",
+    category: "Technical Skills",
+  },
+  {
+    name: "Scikit-learn",
+    level: 80,
+    icon: Brain,
+    color: "from-blue-400 to-indigo-500",
+    category: "Technical Skills",
+  },
+  {
+    name: "Pandas",
+    level: 85,
+    icon: Database,
+    color: "from-purple-400 to-pink-400",
+    category: "Technical Skills",
+  },
+  {
+    name: "TensorFlow",
+    level: 80,
+    icon: Cpu,
+    color: "from-orange-500 to-red-500",
+    category: "Technical Skills",
+  },
+  {
+    name: "MySQL / SQL",
+    level: 85,
+    icon: Database,
+    color: "from-teal-400 to-emerald-500",
+    category: "Technical Skills",
+  },
+  {
+    name: "MongoDB",
+    level: 80,
+    icon: Database,
+    color: "from-green-500 to-emerald-500",
+    category: "Technical Skills",
+  },
+  {
+    name: "Git / GitHub",
+    level: 85,
+    icon: GitBranch,
+    color: "from-orange-600 to-red-600",
+    category: "Technical Skills",
+  },
+  {
+    name: "Figma / Canva",
+    level: 90,
+    icon: Layers,
+    color: "from-pink-400 to-purple-400",
+    category: "Technical Skills",
+  },
+  {
+    name: "Microsoft Excel",
+    level: 85,
+    icon: BarChart3,
+    color: "from-green-400 to-lime-400",
+    category: "Technical Skills",
+  },
 
   // 💬 SOFT SKILLS
-  { name: "Leadership & Team Management", level: 95, icon: Users, color: "from-sky-500 to-indigo-500", category: "Soft Skills" },
-  { name: "Project Coordination", level: 90, icon: ClipboardCheck, color: "from-teal-400 to-emerald-500", category: "Soft Skills" },
-  { name: "Communication & Mentorship", level: 88, icon: MessageSquare, color: "from-pink-400 to-purple-400", category: "Soft Skills" },
-  { name: "Critical Thinking", level: 92, icon: Lightbulb, color: "from-yellow-400 to-amber-500", category: "Soft Skills" },
-  { name: "Problem Solving", level: 90, icon: Brain, color: "from-indigo-400 to-purple-500", category: "Soft Skills" },
-  { name: "Teamwork & Collaboration", level: 94, icon: Users, color: "from-blue-400 to-cyan-400", category: "Soft Skills" },
-  { name: "Data Analysis", level: 85, icon: BarChart3, color: "from-green-400 to-emerald-500", category: "Soft Skills" },
+  {
+    name: "Leadership & Team Management",
+    level: 95,
+    icon: Users,
+    color: "from-sky-500 to-indigo-500",
+    category: "Soft Skills",
+  },
+  {
+    name: "Project Coordination",
+    level: 90,
+    icon: ClipboardCheck,
+    color: "from-teal-400 to-emerald-500",
+    category: "Soft Skills",
+  },
+  {
+    name: "Communication & Mentorship",
+    level: 88,
+    icon: MessageSquare,
+    color: "from-pink-400 to-purple-400",
+    category: "Soft Skills",
+  },
+  {
+    name: "Critical Thinking",
+    level: 92,
+    icon: Lightbulb,
+    color: "from-yellow-400 to-amber-500",
+    category: "Soft Skills",
+  },
+  {
+    name: "Problem Solving",
+    level: 90,
+    icon: Brain,
+    color: "from-indigo-400 to-purple-500",
+    category: "Soft Skills",
+  },
+  {
+    name: "Teamwork & Collaboration",
+    level: 94,
+    icon: Users,
+    color: "from-blue-400 to-cyan-400",
+    category: "Soft Skills",
+  },
+  {
+    name: "Data Analysis",
+    level: 85,
+    icon: BarChart3,
+    color: "from-green-400 to-emerald-500",
+    category: "Soft Skills",
+  },
 ];
 
 const categories = ["All", "Technical Skills", "Soft Skills"];
 
-const SkillCard = ({ skill, index, isVisible }: { skill: Skill; index: number; isVisible: boolean }) => {
+const SkillCard = ({
+  skill,
+  index,
+  isVisible,
+}: {
+  skill: Skill;
+  index: number;
+  isVisible: boolean;
+}) => {
   const [progress, setProgress] = useState(0);
   const Icon = skill.icon;
 
   useEffect(() => {
     if (isVisible) {
-      const timer = setTimeout(() => setProgress(skill.level), index * 100);
+      const timer = setTimeout(() => setProgress(skill.level), 200);
       return () => clearTimeout(timer);
     }
   }, [isVisible, skill.level, index]);
 
-  const circumference = 2 * Math.PI * 70;
+  // RESPONSIVE circle radius
+  const radius = 55; // lebih kecil, aman untuk mobile
+  const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
@@ -76,24 +230,23 @@ const SkillCard = ({ skill, index, isVisible }: { skill: Skill; index: number; i
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="glass p-8 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-        <div className="relative w-40 h-40 mx-auto">
-          {/* Background Circle */}
+      <div className="glass p-6 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-105 hover:shadow-xl">
+        <div className="relative w-28 h-28 sm:w-40 sm:h-40 mx-auto">
           <svg className="w-full h-full transform -rotate-90">
             <circle
-              cx="80"
-              cy="80"
-              r="70"
+              cx="50%"
+              cy="50%"
+              r={radius}
               stroke="currentColor"
               strokeWidth="8"
               fill="none"
               className="text-muted/20"
             />
-            {/* Progress Circle */}
+
             <circle
-              cx="80"
-              cy="80"
-              r="70"
+              cx="50%"
+              cy="50%"
+              r={radius}
               stroke="url(#gradient)"
               strokeWidth="8"
               fill="none"
@@ -102,23 +255,25 @@ const SkillCard = ({ skill, index, isVisible }: { skill: Skill; index: number; i
               strokeLinecap="round"
               className="transition-all duration-1000 ease-out"
             />
+
             <defs>
               <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="hsl(217,91%,60%)" />
-                <stop offset="100%" stopColor="hsl(264,89%,58%)" />
+                <stop offset="0%" stopColor="hsl(217, 91%, 60%)" />
+                <stop offset="100%" stopColor="hsl(264, 89%, 58%)" />
               </linearGradient>
             </defs>
           </svg>
 
-          {/* Icon & Percentage */}
+          {/* Center Icon & Percentage */}
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <Icon className="w-12 h-12 text-primary mb-2 group-hover:scale-110 transition-transform" />
-            <span className="text-2xl font-bold text-foreground">{progress}%</span>
+            <Icon className="w-10 h-10 text-primary mb-1 group-hover:scale-110 transition-transform" />
+            <span className="text-xl sm:text-2xl font-bold text-foreground">
+              {progress}%
+            </span>
           </div>
         </div>
 
-        {/* Skill Name */}
-        <p className="text-center mt-4 font-semibold text-lg group-hover:text-primary transition-colors">
+        <p className="text-center mt-4 font-semibold text-base sm:text-lg group-hover:text-primary transition-colors">
           {skill.name}
         </p>
       </div>
@@ -132,9 +287,12 @@ export const Skills = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setIsVisible(true);
-    }, { threshold: 0.2 });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0 }
+    );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
