@@ -230,8 +230,8 @@ const SkillCard = ({
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="glass p-6 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-105 hover:shadow-xl">
-        <div className="relative w-28 h-28 sm:w-40 sm:h-40 mx-auto">
+      <div className="glass p-4 sm:p-6 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-105 hover:shadow-xl">
+        <div className="relative w-24 h-24 sm:w-40 sm:h-40 mx-auto">
           <svg className="w-full h-full transform -rotate-90">
             <circle
               cx="50%"
@@ -267,7 +267,7 @@ const SkillCard = ({
           {/* Center Icon & Percentage */}
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <Icon className="w-10 h-10 text-primary mb-1 group-hover:scale-110 transition-transform" />
-            <span className="text-xl sm:text-2xl font-bold text-foreground">
+            <span className="text-lg sm:text-2xl font-bold text-foreground">
               {progress}%
             </span>
           </div>
@@ -360,7 +360,7 @@ export const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full px-2">
           {filteredSkills.map((skill, index) => (
             <SkillCard
               key={skill.name}
