@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import profileImage from "@/assets/profile.jpg";
 
 export const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -68,7 +67,7 @@ export const About = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-purple-500 rounded-2xl opacity-40 blur-xl group-hover:opacity-70 transition-all duration-500" />
               <div className="relative p-4 rounded-2xl bg-card/70 backdrop-blur-xl border border-border/50">
                 <img
-                  src={profileImage}
+                  src="/images/Profile.jpg"
                   alt="Rainer Yesaya Villareal"
                   className="w-full max-w-md rounded-xl object-cover"
                 />
@@ -94,7 +93,6 @@ export const About = () => {
 
             {/* Description */}
             <p className="text-lg leading-relaxed">
-              
               A Computer Science student at{" "}
               <span className="text-primary font-semibold">
                 Bina Nusantara University

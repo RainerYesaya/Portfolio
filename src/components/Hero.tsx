@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Download, Mail, ChevronDown } from "lucide-react";
-import profileImage from "@/assets/profile.jpg";
 
 export const Hero = () => {
   const [typedText, setTypedText] = useState("");
@@ -97,37 +96,36 @@ export const Hero = () => {
               </p>
             </div>
 
-           <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-slide-up leading-relaxed">
-              A Computer Science student from Bina Nusantara University passionate about 
-              Artificial Intelligence and building impactful solutions that connect technology, 
-              creativity, and people.
-          </p>
+            <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-slide-up leading-relaxed">
+              A Computer Science student from Bina Nusantara University
+              passionate about Artificial Intelligence and building impactful
+              solutions that connect technology, creativity, and people.
+            </p>
 
-<div className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
-  <Button
-    size="lg"
-    className="glow-hover group"
-    onClick={() =>
-      window.open(
-        "https://drive.google.com/file/d/1XK6N89ySBXrAumUdCzkynmHfwtxFcWHw/view?usp=sharing",
-        "_blank"
-      )
-    }
-  >
-    <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-    Download CV
-  </Button>
-  <Button
-    size="lg"
-    variant="outline"
-    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-    onClick={handleContactClick}
-  >
-    <Mail className="mr-2 h-5 w-5" />
-    Contact Me
-  </Button>
-</div>
-
+            <div className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
+              <Button
+                size="lg"
+                className="glow-hover group"
+                onClick={() =>
+                  window.open(
+                    "https://drive.google.com/file/d/1XK6N89ySBXrAumUdCzkynmHfwtxFcWHw/view?usp=sharing",
+                    "_blank"
+                  )
+                }
+              >
+                <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                Download CV
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                onClick={handleContactClick}
+              >
+                <Mail className="mr-2 h-5 w-5" />
+                Contact Me
+              </Button>
+            </div>
           </div>
 
           {/* Right Content - Profile Image */}
@@ -136,7 +134,7 @@ export const Hero = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-purple-500 rounded-full opacity-75 blur-2xl group-hover:opacity-100 transition-opacity animate-glow-pulse" />
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/50 group-hover:border-primary transition-all duration-300 group-hover:scale-105">
                 <img
-                  src={profileImage}
+                  src="/images/Profile.jpg"
                   alt="Rainer Yesaya Villareal"
                   className="w-full h-full object-cover"
                 />

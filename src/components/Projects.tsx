@@ -28,7 +28,7 @@ const projects: Project[] = [
       "React.js",
     ],
     category: "AI",
-    image: "src/assets/TrackIT_Cover.png",
+    image: "/images/TrackIT_Cover.png",
     githubLink: "https://github.com/RainerYesaya/TrackIT",
   },
   {
@@ -37,7 +37,7 @@ const projects: Project[] = [
       "A machine learning model that predicts flood risk in Jakarta using historical weather data, SMOTE balancing, and a Random Forest classifier. Deployed through a simple Flask web app for real-time user input and predictions.",
     technologies: ["Python", "Pandas", "NumPy", "Flask", "Scikit-Learn"],
     category: "AI",
-    image: "src/assets/Flood_Prediction_Models_Cover.jpg",
+    image: "/images/Flood_Prediction_Models_Cover.jpg",
     githubLink: "https://github.com/RainerYesaya/Flood-Prediction-Models",
   },
   {
@@ -46,7 +46,7 @@ const projects: Project[] = [
       "A personal project where I built a smartphone brand website called V-Phone, featuring a homepage, product listings, promotions, and a registration page. This project strengthened my skills in creating clean and user-friendly web interfaces while applying brand identity into a functional site.",
     technologies: ["HTML", "CSS", "Figma", "JavaScript"],
     category: "Web",
-    image: "src/assets/V-Phone_Cover.jpg",
+    image: "images/V-Phone_Cover.jpg",
     githubLink: "https://github.com/RainerYesaya/V-Phone.git",
   },
   {
@@ -55,7 +55,7 @@ const projects: Project[] = [
       "A multi-page website redesign inspired by Asphalt 9: Legends, featuring a homepage, car listings with filters, news updates, esports events, and a subscription page. The project focuses on creating a clean, game-styled interface with improved usability.",
     technologies: ["HTML", "CSS", "JavaScript", "Figma"],
     category: "Web",
-    image: "src/assets/Asphatl9_Cover.jpg",
+    image: "images/Asphatl9_Cover.jpg",
     githubLink: "https://github.com/RainerYesaya/Asphatl9",
   },
   {
@@ -64,7 +64,7 @@ const projects: Project[] = [
       "A full-stack web platform that helps users discover recycling ideas, tutorials, and inspiration for turning waste into useful products. The website features material-based search and filters, a catalog of creative projects, video tutorials, user uploads, comments, and authentication. Built with a focus on usability and clean interface design.",
     technologies: ["React.js", "Node.js", "Express.js", "CouchDb", "Figma"],
     category: "Web",
-    image: "src/assets/WasteWise_Cover.jpg",
+    image: "images/WasteWise_Cover.jpg",
     githubLink: "https://github.com/RainerYesaya/WasteWise",
   },
   {
@@ -74,7 +74,7 @@ const projects: Project[] = [
       "A research project proposing a hybrid game recommendation method by combining collaborative filtering with the Apriori algorithm. I contributed to the introduction and methodology, helping define the problem, review related work, and design the model. This project strengthened my understanding of recommender systems and hybrid modeling.",
     technologies: ["Python", "Steam Web API"],
     category: "Research",
-    image: "src/assets/Research_Cover.png",
+    image: "images/Research_Cover.png",
     demoLink:
       "https://docs.google.com/document/d/1NCfACNxBE-5QqInum5HxqnUCS4bNI5o5/edit?usp=sharing&ouid=104274979903997048159&rtpof=true&sd=true",
   },
@@ -84,7 +84,7 @@ const projects: Project[] = [
       "MediAssist is an AI-based medical chatbot that answers common health questions instantly, anytime. It uses NLP and a trained neural network to understand user messages and give accurate, consistent replies. The chatbot runs on a simple web interface where users can chat with it in real time, helping reduce manual workload and improve accessibility.",
     technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
     category: "AI",
-    image: "src/assets/MediAssist_Cover.jpg",
+    image: "images/MediAssist_Cover.jpg",
     githubLink: "https://github.com/RainerYesaya/Mediassist",
   },
 ];
