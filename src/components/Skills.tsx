@@ -218,10 +218,16 @@ const SkillCard = ({
     }
   }, [isVisible, skill.level, index]);
 
-  // RESPONSIVE circle radius
-  const radius = 55; // lebih kecil, aman untuk mobile
+  // KONFIGURASI UKURAN LINGKARAN
+  const radius = 50; // Saya sedikit sesuaikan agar proporsi lebih pas di tengah
+  const strokeWidth = 8;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
+
+  // Ukuran kanvas virtual untuk SVG agar responsif
+  // Diameter (100) + Stroke (8) + Padding sedikit = 120
+  const viewBoxSize = 120;
+  const center = viewBoxSize / 2; // Titik tengah (60)
 
   return (
     <div
@@ -231,24 +237,31 @@ const SkillCard = ({
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       <div className="glass p-4 sm:p-6 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-105 hover:shadow-xl">
+        {/* Container Size dikontrol Tailwind (w-24 untuk HP, w-40 untuk Laptop) */}
         <div className="relative w-24 h-24 sm:w-40 sm:h-40 mx-auto">
-          <svg className="w-full h-full transform -rotate-90">
+          {/* PERBAIKAN DISINI: Menambahkan viewBox */}
+          <svg
+            className="w-full h-full transform -rotate-90"
+            viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
+          >
+            {/* Background Circle */}
             <circle
-              cx="50%"
-              cy="50%"
+              cx={center}
+              cy={center}
               r={radius}
               stroke="currentColor"
-              strokeWidth="8"
+              strokeWidth={strokeWidth}
               fill="none"
               className="text-muted/20"
             />
 
+            {/* Progress Circle */}
             <circle
-              cx="50%"
-              cy="50%"
+              cx={center}
+              cy={center}
               r={radius}
               stroke="url(#gradient)"
-              strokeWidth="8"
+              strokeWidth={strokeWidth}
               fill="none"
               strokeDasharray={circumference}
               strokeDashoffset={strokeDashoffset}
@@ -266,7 +279,7 @@ const SkillCard = ({
 
           {/* Center Icon & Percentage */}
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <Icon className="w-10 h-10 text-primary mb-1 group-hover:scale-110 transition-transform" />
+            <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-primary mb-1 group-hover:scale-110 transition-transform" />
             <span className="text-lg sm:text-2xl font-bold text-foreground">
               {progress}%
             </span>
