@@ -108,7 +108,7 @@ export const Hero = () => {
                 className="glow-hover group"
                 onClick={() =>
                   window.open(
-                    "https://drive.google.com/file/d/1XK6N89ySBXrAumUdCzkynmHfwtxFcWHw/view?usp=sharing",
+                    "https://drive.google.com/file/d/1EOPB26hLcwHMT2vlQFsI3JV-c2Qkge4H/view?usp=sharing",
                     "_blank"
                   )
                 }
@@ -143,7 +143,6 @@ export const Hero = () => {
           </div>
         </div>
       </div>
-
     </section>
   );
 };

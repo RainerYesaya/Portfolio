@@ -218,17 +218,14 @@ const SkillCard = ({
     }
   }, [isVisible, skill.level, index]);
 
-  // KONFIGURASI UKURAN LINGKARAN
-  const radius = 50; // Saya sedikit sesuaikan agar proporsi lebih pas di tengah
+  const radius = 50; 
   const strokeWidth = 8;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
-  // Ukuran kanvas virtual untuk SVG agar responsif
-  // Diameter (100) + Stroke (8) + Padding sedikit = 120
-  const viewBoxSize = 120;
-  const center = viewBoxSize / 2; // Titik tengah (60)
 
+  const viewBoxSize = 120;
+  const center = viewBoxSize / 2; 
   return (
     <div
       className={`group relative transition-all duration-700 ${
@@ -237,9 +234,9 @@ const SkillCard = ({
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       <div className="glass p-4 sm:p-6 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-105 hover:shadow-xl">
-        {/* Container Size dikontrol Tailwind (w-24 untuk HP, w-40 untuk Laptop) */}
+      
         <div className="relative w-24 h-24 sm:w-40 sm:h-40 mx-auto">
-          {/* PERBAIKAN DISINI: Menambahkan viewBox */}
+        
           <svg
             className="w-full h-full transform -rotate-90"
             viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
