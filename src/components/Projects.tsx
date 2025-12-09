@@ -26,6 +26,7 @@ const projects: Project[] = [
       "Flask",
       "Supabase",
       "React.js",
+      "Computer Vision",
     ],
     category: "AI",
     image: "/images/TrackIT_Cover.png",
@@ -35,7 +36,15 @@ const projects: Project[] = [
     title: "Flood Risk Prediction Model for Jakarta",
     description:
       "A machine learning model that predicts flood risk in Jakarta using historical weather data, SMOTE balancing, and a Random Forest classifier. Deployed through a simple Flask web app for real-time user input and predictions.",
-    technologies: ["Python", "Pandas", "NumPy", "Flask", "Scikit-Learn"],
+    technologies: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Flask",
+      "Scikit-Learn",
+      "Random Forest",
+      "Machine Learning",
+    ],
     category: "AI",
     image: "/images/Flood_Prediction_Models_Cover.jpg",
     githubLink: "https://github.com/RainerYesaya/Flood-Prediction-Models",
@@ -82,7 +91,17 @@ const projects: Project[] = [
     title: "MediaAssist",
     description:
       "MediAssist is an AI-based medical chatbot that answers common health questions instantly, anytime. It uses NLP and a trained neural network to understand user messages and give accurate, consistent replies. The chatbot runs on a simple web interface where users can chat with it in real time, helping reduce manual workload and improve accessibility.",
-    technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
+    technologies: [
+      "Python",
+      "Flask",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "NLTK",
+      "NLP",
+      "Tensorflow",
+      "Keras",
+    ],
     category: "AI",
     image: "images/MediAssist_Cover.jpg",
     githubLink: "https://github.com/RainerYesaya/Mediassist",
@@ -95,14 +114,14 @@ export const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: true, 
-    align: 'start',
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
     slidesToScroll: 1,
     breakpoints: {
-      '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1024px)': { slidesToScroll: 3 }
-    }
+      "(min-width: 768px)": { slidesToScroll: 2 },
+      "(min-width: 1024px)": { slidesToScroll: 3 },
+    },
   });
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -134,11 +153,11 @@ export const Projects = () => {
       setSelectedIndex(emblaApi.selectedScrollSnap());
     };
 
-    emblaApi.on('select', onSelect);
+    emblaApi.on("select", onSelect);
     onSelect();
 
     return () => {
-      emblaApi.off('select', onSelect);
+      emblaApi.off("select", onSelect);
     };
   }, [emblaApi]);
 
@@ -152,12 +171,18 @@ export const Projects = () => {
   const scrollTo = (index: number) => emblaApi?.scrollTo(index);
 
   return (
-    <section id="projects" className="py-20 md:py-32 bg-background/50" ref={sectionRef}>
+    <section
+      id="projects"
+      className="py-20 md:py-32 bg-background/50"
+      ref={sectionRef}
+    >
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2
             className={`text-4xl md:text-5xl font-bold mb-4 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
             Featured <span className="text-gradient">Projects</span>
@@ -169,7 +194,9 @@ export const Projects = () => {
           />
           <p
             className={`text-muted-foreground mt-4 text-lg transition-all duration-700 delay-300 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
             Showcasing my work in AI, web development, and research
@@ -206,7 +233,9 @@ export const Projects = () => {
                 <div
                   key={index}
                   className={`group glass rounded-2xl overflow-hidden hover:glass-strong transition-all duration-700 hover:scale-[1.02] flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${index * 100 + 500}ms` }}
                 >
@@ -224,7 +253,9 @@ export const Projects = () => {
                             size="sm"
                             variant="default"
                             className="flex-1"
-                            onClick={() => window.open(project.demoLink, "_blank")}
+                            onClick={() =>
+                              window.open(project.demoLink, "_blank")
+                            }
                           >
                             <ExternalLink className="w-4 h-4 mr-2" />
                             See
@@ -235,7 +266,9 @@ export const Projects = () => {
                             size="sm"
                             variant="outline"
                             className="flex-1 border-primary"
-                            onClick={() => window.open(project.githubLink, "_blank")}
+                            onClick={() =>
+                              window.open(project.githubLink, "_blank")
+                            }
                           >
                             <Github className="w-4 h-4 mr-2" />
                             Code

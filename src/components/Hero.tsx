@@ -108,7 +108,7 @@ export const Hero = () => {
                 className="glow-hover group"
                 onClick={() =>
                   window.open(
-                    "https://drive.google.com/file/d/1EOPB26hLcwHMT2vlQFsI3JV-c2Qkge4H/view?usp=sharing",
+                    "https://drive.google.com/file/d/1ev-0aKOY1ZfB0HLV-JSP0qHaxYWE1FGg/view?usp=sharing",
                     "_blank"
                   )
                 }
